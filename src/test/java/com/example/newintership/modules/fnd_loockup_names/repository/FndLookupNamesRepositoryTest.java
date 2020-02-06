@@ -1,6 +1,6 @@
 package com.example.newintership.modules.fnd_loockup_names.repository;
 
-import com.example.newintership.modules.fnd_loockup_names.model.FndLoockupNames;
+import com.example.newintership.modules.fnd_loockup_names.model.FndLookupNames;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class FndLoockupNamesRepositoryTest {
+public class FndLookupNamesRepositoryTest {
 
     @Autowired
     private TestEntityManager testEntityManager;
@@ -21,10 +21,10 @@ public class FndLoockupNamesRepositoryTest {
 
     @Test
     public void whenFind_thenReturnEntity() {
-        FndLoockupNames f=new FndLoockupNames("tesat");
+        FndLookupNames f=new FndLookupNames("tesat");
         testEntityManager.persist(f);
         testEntityManager.flush();
-        FndLoockupNames found=fndLoockupNamesRepository.findByDesFarsiLkpnm(f.getDesFarsiLkpnm());
+        FndLookupNames found=fndLoockupNamesRepository.findByDesFarsiLkpnm(f.getDesFarsiLkpnm());
         assertEquals(found.getDesFarsiLkpnm(), f.getDesFarsiLkpnm());
 
     }

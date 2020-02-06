@@ -1,5 +1,6 @@
 package com.example.newintership.modules.fnd_application_system.model;
 
+import com.example.newintership.modules.fnd_loockup_names.model.FndLookupNames;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -9,8 +10,8 @@ import java.util.List;
 
 @Entity
 @Table
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class FndApplicationSystem {
-
     @Id
     @GeneratedValue
     private Long applicationSystemId;
@@ -32,6 +33,10 @@ public class FndApplicationSystem {
     private String lkpBaseTypAppls;
     private String desLatinZoneAppls;
     private String codAppRolesAppls;
+
+
+    @OneToMany(mappedBy = "fndApplicationSystem")
+    private List<FndLookupNames> fndLookupNames;
 
     public FndApplicationSystem() {
     }

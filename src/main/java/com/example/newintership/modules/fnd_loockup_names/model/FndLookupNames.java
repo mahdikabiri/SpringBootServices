@@ -1,13 +1,17 @@
 package com.example.newintership.modules.fnd_loockup_names.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.example.newintership.modules.fnd_application_system.model.FndApplicationSystem;
+import com.example.newintership.modules.fnd_lookup_rel_tables.model.FndLookupRelTables;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
-public class FndLoockupNames {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class FndLookupNames {
     @Id
     @GeneratedValue
     private Long lookupNameId;
@@ -20,11 +24,19 @@ public class FndLoockupNames {
     private String valDefaultLkpnm;
     private Long flgEnabledLkpnm;
 
-    public FndLoockupNames() {
+
+    @ManyToOne
+    private FndApplicationSystem fndApplicationSystem;
+
+
+    @OneToMany(mappedBy = "fndLookupNames")
+    private List<FndLookupRelTables> fndLookupRelTables;
+
+    public FndLookupNames() {
     }
 
 
-    public FndLoockupNames(String desFarsiLkpnm) {
+    public FndLookupNames(String desFarsiLkpnm) {
         this.desFarsiLkpnm=desFarsiLkpnm;
     }
     public Long getLookupNameId() {
