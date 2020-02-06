@@ -17,7 +17,7 @@ public class FndLoockupNamesRepositoryTest {
     private TestEntityManager testEntityManager;
 
     @Autowired
-    private FndLoockupNamesRepository fndLoockupNamesRepository;
+    private FndLoockupNamesRepository  fndLoockupNamesRepository;
 
     @Test
     public void whenFind_thenReturnEntity() {
