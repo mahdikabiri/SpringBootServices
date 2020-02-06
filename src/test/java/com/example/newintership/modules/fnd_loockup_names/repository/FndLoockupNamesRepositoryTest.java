@@ -1,6 +1,6 @@
-package com.example.newintership.modules.fnd_application_system.repository;
+package com.example.newintership.modules.fnd_loockup_names.repository;
 
-import com.example.newintership.modules.fnd_application_system.model.FndApplicationSystem;
+import com.example.newintership.modules.fnd_loockup_names.model.FndLoockupNames;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,22 +9,24 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class FndApplicationSystemRepositoryTest {
+public class FndLoockupNamesRepositoryTest {
+
     @Autowired
     private TestEntityManager testEntityManager;
 
     @Autowired
-    private FndApplicationSystemRepository   fndApplicationSystemRepository;
+    private FndLoockupNamesRepository fndLoockupNamesRepository;
 
     @Test
     public void whenFind_thenReturnEntity() {
-        FndApplicationSystem f = new FndApplicationSystem("test");
+        FndLoockupNames f=new FndLoockupNames("tesat");
         testEntityManager.persist(f);
         testEntityManager.flush();
-        FndApplicationSystem found = fndApplicationSystemRepository.findByNamAppShortAppls(f.getNamAppShortAppls());
-        assertEquals(found.getNamAppShortAppls(), f.getNamAppShortAppls());
+        FndLoockupNames found=fndLoockupNamesRepository.findByDesFarsiLkpnm(f.getDesFarsiLkpnm());
+        assertEquals(found.getDesFarsiLkpnm(), f.getDesFarsiLkpnm());
+
     }
-}
+
+    }
