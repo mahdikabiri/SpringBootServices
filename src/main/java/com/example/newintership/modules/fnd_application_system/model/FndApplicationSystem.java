@@ -41,11 +41,6 @@ public class FndApplicationSystem {
     public FndApplicationSystem() {
     }
 
-
-    public FndApplicationSystem(String namAppShortAppls) {
-        this.namAppShortAppls=namAppShortAppls;
-    }
-
     public Long getApplicationSystemId() {
         return applicationSystemId;
     }

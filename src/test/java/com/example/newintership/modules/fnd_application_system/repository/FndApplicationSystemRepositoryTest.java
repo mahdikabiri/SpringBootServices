@@ -17,11 +17,11 @@ public class FndApplicationSystemRepositoryTest {
     private TestEntityManager testEntityManager;
 
     @Autowired
-    private FndApplicationSystemRepository   fndApplicationSystemRepository;
+    private FndApplicationSystemRepository fndApplicationSystemRepository;
 
     @Test
-    public void whenFind_thenReturnEntity() {
-        FndApplicationSystem f = new FndApplicationSystem("test");
+    public void whenFindByName_thenReturnEmployee() {
+        FndApplicationSystem f = new FndApplicationSystem();
         testEntityManager.persist(f);
         testEntityManager.flush();
         FndApplicationSystem found = fndApplicationSystemRepository.findByNamAppShortAppls(f.getNamAppShortAppls());

@@ -2,6 +2,7 @@ package com.example.newintership.modules.fnd_loockup_names.model;
 
 import com.example.newintership.modules.fnd_application_system.model.FndApplicationSystem;
 import com.example.newintership.modules.fnd_lookup_rel_tables.model.FndLookupRelTables;
+import com.example.newintership.modules.fnd_lookup_values.model.FndLookupValeus;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -31,6 +32,10 @@ public class FndLookupNames {
 
     @OneToMany(mappedBy = "fndLookupNames")
     private List<FndLookupRelTables> fndLookupRelTables;
+
+
+    @OneToMany(mappedBy = "fndLookupNames")
+    private List<FndLookupValeus> fndLookupValues;
 
     public FndLookupNames() {
     }
