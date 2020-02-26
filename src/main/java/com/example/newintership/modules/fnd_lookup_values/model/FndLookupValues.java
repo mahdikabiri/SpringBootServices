@@ -9,8 +9,8 @@ import java.util.Date;
 
 @Entity
 @Table
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class FndLookupValeus {
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class FndLookupValues {
 
 
     @Id
@@ -29,12 +29,12 @@ public class FndLookupValeus {
     @ManyToOne
     private FndLookupNames fndLookupNames;
 
-    public FndLookupValeus(String valLookupLkpvl) {
+    public FndLookupValues(String valLookupLkpvl) {
     this.valLookupLkpvl=valLookupLkpvl;
     }
 
 
-    public FndLookupValeus() {
+    public FndLookupValues() {
     }
 
     public Long getLookupValueId() {
@@ -109,7 +109,7 @@ public class FndLookupValeus {
         this.numSortOrderLkpvl = numSortOrderLkpvl;
     }
 
-    public FndLookupNames getFndLookupNames() {
+ /*   public FndLookupNames getFndLookupNames() {
         return fndLookupNames;
     }
 
@@ -117,5 +117,5 @@ public class FndLookupValeus {
         this.fndLookupNames = fndLookupNames;
     }
 
-
+*/
 }

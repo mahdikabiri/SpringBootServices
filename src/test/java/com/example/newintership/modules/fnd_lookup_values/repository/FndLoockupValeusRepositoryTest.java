@@ -1,6 +1,6 @@
 package com.example.newintership.modules.fnd_lookup_values.repository;
 
-import com.example.newintership.modules.fnd_lookup_values.model.FndLookupValeus;
+import com.example.newintership.modules.fnd_lookup_values.model.FndLookupValues;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +21,10 @@ public class FndLoockupValeusRepositoryTest {
 
     @Test
     public void whenFind_thenReturnEntity(){
-        FndLookupValeus f=new FndLookupValeus("test");
+        FndLookupValues f=new FndLookupValues("test");
         testEntityManager.persist(f);
         testEntityManager.flush();
-        FndLookupValeus found=fndLoockupValeusRepository.findByValLookupLkpvl(f.getValLookupLkpvl());
+        FndLookupValues found=fndLoockupValeusRepository.findByValLookupLkpvl(f.getValLookupLkpvl());
         assertEquals(found.getValLookupLkpvl(),f.getValLookupLkpvl());
     }
 }

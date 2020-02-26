@@ -2,7 +2,7 @@ package com.example.newintership.modules.fnd_loockup_names.model;
 
 import com.example.newintership.modules.fnd_application_system.model.FndApplicationSystem;
 import com.example.newintership.modules.fnd_lookup_rel_tables.model.FndLookupRelTables;
-import com.example.newintership.modules.fnd_lookup_values.model.FndLookupValeus;
+import com.example.newintership.modules.fnd_lookup_values.model.FndLookupValues;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class FndLookupNames {
     @Id
     @GeneratedValue
@@ -25,25 +25,22 @@ public class FndLookupNames {
     private String valDefaultLkpnm;
     private Long flgEnabledLkpnm;
 
-
     @ManyToOne
     private FndApplicationSystem fndApplicationSystem;
-
 
     @OneToMany(mappedBy = "fndLookupNames")
     private List<FndLookupRelTables> fndLookupRelTables;
 
-
     @OneToMany(mappedBy = "fndLookupNames")
-    private List<FndLookupValeus> fndLookupValues;
+    private List<FndLookupValues> fndLookupValues;
 
     public FndLookupNames() {
     }
 
-
     public FndLookupNames(String desFarsiLkpnm) {
-        this.desFarsiLkpnm=desFarsiLkpnm;
+        this.desFarsiLkpnm = desFarsiLkpnm;
     }
+
     public Long getLookupNameId() {
         return lookupNameId;
     }

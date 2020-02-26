@@ -10,10 +10,11 @@ import java.util.List;
 
 @Entity
 @Table
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class FndApplicationSystem {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long applicationSystemId;
 
     private String namAppShortAppls;
@@ -33,7 +34,14 @@ public class FndApplicationSystem {
     private String lkpBaseTypAppls;
     private String desLatinZoneAppls;
     private String codAppRolesAppls;
+/*
+  public List<FndLookupNames> getFndLookupNames() {
+        return fndLookupNames;
+    }
 
+    public void setFndLookupNames(List<FndLookupNames> fndLookupNames) {
+        this.fndLookupNames = fndLookupNames;
+    }*/
 
     @OneToMany(mappedBy = "fndApplicationSystem")
     private List<FndLookupNames> fndLookupNames;
@@ -184,4 +192,6 @@ public class FndApplicationSystem {
     public void setCodAppRolesAppls(String codAppRolesAppls) {
         this.codAppRolesAppls = codAppRolesAppls;
     }
+
+
 }
